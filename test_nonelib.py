@@ -14,10 +14,10 @@ def test_nonedict_mapping():
 def test_nonewrap():
 
     @nonewrap()
-    def s(lst, offset=0, limit=10):
+    def s(lst, offset=3, limit=3):
         return lst[offset:offset+limit]
 
-    assert s([1,2,3,4,5,6,7,8,9,10], offset=None, limit=3) == [1, 2, 3]
+    assert s([1,2,3,4,5,6,7,8,9,10], offset=None, limit=5) == [4, 5, 6, 7, 8]  # offset=3 is in effect
 
 
 def test_nonelist():
@@ -29,7 +29,7 @@ def test_noneset():
 
 
 def test_noneiter():
-    it = noneiter({1, None, 3})
+    it = noneiter([1, None, 3])
     assert next(it, "foo") == 1
     assert next(it, "foo") == 3
     assert next(it, "foo") == "foo"

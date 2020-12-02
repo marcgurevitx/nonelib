@@ -17,10 +17,10 @@ Remove None's from data and calls.
 ```python
 >>> from nonelib import nonewrap
 >>> @nonewrap
->>> def s(lst, offset=0, limit=10):
+>>> def s(lst, offset=3, limit=3):
 ...     return lst[offset:offset+limit]
->>> s([1,2,3,4,5,6,7,8,9,10], offset=None, limit=3)
-[1, 2, 3]
+>>> s([1,2,3,4,5,6,7,8,9,10], offset=None, limit=5)  # offset=3 is in effect
+[4, 5, 6, 7, 8]
 ```
 
 ### `nonelist()`
@@ -43,7 +43,7 @@ Remove None's from data and calls.
 
 ```python
 >>> from nonelib import noneiter
->>> for x in noneiter({1, None, 3}):
+>>> for x in noneiter([1, None, 3]):
 ...     print(x)
 1
 3
